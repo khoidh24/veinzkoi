@@ -22,7 +22,7 @@ const KoiFishModelWrapper = () => {
         end: "bottom top-=1000",
         scrub: true,
         pin: true,
-        markers: true,
+        // markers: true,
       },
     });
 
