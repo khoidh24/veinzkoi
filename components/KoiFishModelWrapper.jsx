@@ -10,6 +10,13 @@ const KoiFishModelWrapper = () => {
   const groupRef = useRef();
   const { viewport } = useThree();
 
+  const animationArr = useMemo(() => {
+    return Array.from({ length: 7 }, (_, i) => ({
+      x: viewport.width * ((i + 1) * 0.11),
+      y: -(i + 1) * 0.2,
+    }));
+  }, [viewport]);
+
   const scale = useMemo(() => {
     return viewport.width < 8 ? (viewport.width > 2.75 ? 0.56 : 0.4) : 1;
   }, [viewport]);
@@ -34,24 +41,13 @@ const KoiFishModelWrapper = () => {
       z: -0.3,
     });
 
-    tl.to(groupRef.current.position, {
-      x: viewport.width * 0.2,
-      y: -0.5,
-    });
-
-    tl.to(groupRef.current.position, {
-      x: viewport.width * 0.6,
-      y: -1,
-    });
-
-    tl.to(groupRef.current.position, {
-      x: viewport.width * 1,
-      y: -1.5,
-    });
-
-    tl.to(groupRef.current.position, {
-      x: viewport.width * 1.4,
-      y: -2,
+    animationArr.forEach((animation, index) => {
+      tl.to(groupRef.current.position, {
+        x: animation.x,
+        y: animation.y,
+        duration: 1,
+        ease: "power1.out",
+      });
     });
   });
 

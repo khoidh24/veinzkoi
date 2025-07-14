@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/sections/Hero";
+import Introduction from "@/sections/Introduction";
 
 const Home = () => {
   return (
@@ -13,12 +14,10 @@ const Home = () => {
       </section>
       <section
         id="introduction--section"
-        className="w-svw h-svh overflow-x-hidden bg-[#182529]"
-      ></section>
-      <section
-        id="contact--section"
-        className="w-svw h-svh overflow-x-hidden bg-[#182529]"
-      ></section>
+        className="w-svw h-svh overflow-x-hidden relative"
+      >
+        <Introduction />
+      </section>
     </>
   );
 };
