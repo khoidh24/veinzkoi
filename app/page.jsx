@@ -1,7 +1,8 @@
 "use client";
 
-import Hero from "@/sections/Hero";
+const Hero = dynamic(() => import("@/sections/Hero"), { ssr: false });
 import Introduction from "@/sections/Introduction";
+import dynamic from "next/dynamic";
 
 const Home = () => {
   return (
