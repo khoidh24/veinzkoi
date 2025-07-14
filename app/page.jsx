@@ -14,7 +14,7 @@ const Home = () => {
       </section>
       <section
         id="introduction--section"
-        className="w-svw h-svh overflow-x-hidden relative"
+        className="w-svw h-svh overflow-x-hidden relative z-90"
       >
         <Introduction />
       </section>
