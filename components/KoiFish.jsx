@@ -10,7 +10,7 @@ export default function KoiFish() {
   const cameraTarget = useRef(new Object3D());
 
   return (
-    <Canvas shadows camera={{ position: [0, 0, 5], fov: 75 }}>
+    <Canvas shadows camera={{ position: [0, 0, 5], fov: 70 }}>
       <ambientLight intensity={1} />
       <primitive object={cameraTarget.current} position={[0, 0, 0]} />
       {/* Direction Light - */}

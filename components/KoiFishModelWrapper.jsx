@@ -56,7 +56,7 @@ const KoiFishModelWrapper = () => {
   });
 
   return (
-    <group ref={groupRef} position={[0, 0, 0]} rotation={[0, 0, 0]}>
+    <group ref={groupRef} position={[0, -0.3, 0]} rotation={[0, 0, 0]}>
       <KoiFishModel scale={scale} />
     </group>
   );
