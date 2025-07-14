@@ -17,7 +17,7 @@ const KoiFishModel = ({ scale, ...props }) => {
 
   useFrame(() => {
     if (actions && actions["MorphBake"]) {
-      actions["MorphBake"].timeScale = 4;
+      actions["MorphBake"].timeScale = 3;
     }
   });
 

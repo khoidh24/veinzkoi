@@ -17,18 +17,20 @@ export default function KoiFish() {
       <directionalLight
         castShadow
         position={[0, 0, 5]}
-        intensity={2}
+        intensity={4}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
+        color={"#87a6a6"}
       />
       <directionalLight
         castShadow
         position={[0, 0, -5]}
-        intensity={2}
+        intensity={4}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
+        color={"#87a6a6"}
       />
       {/* Bottom spotlight */}
       {/* <spotLight
