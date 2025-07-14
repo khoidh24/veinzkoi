@@ -57,7 +57,7 @@ const RootLayoutTemplate = ({ children }) => {
     <>
       <div
         id="koi-fish"
-        className="fixed top-0 left-0 w-svw h-svh pointer-events-none"
+        className="fixed top-0 left-0 w-svw h-svh pointer-events-none z-10"
       >
         <KoiFish />
       </div>
