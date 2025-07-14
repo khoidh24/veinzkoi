@@ -1,11 +1,10 @@
 "use client";
 
-import { useThree } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
 import KoiFishModel from "@/components/KoiFishModel";
 import { useGSAP } from "@gsap/react";
+import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { useMemo, useRef, useState } from "react";
 
 const KoiFishModelWrapper = () => {
   const groupRef = useRef();
@@ -16,13 +15,43 @@ const KoiFishModelWrapper = () => {
   }, [viewport]);
 
   useGSAP(() => {
-    gsap.registerPlugin(ScrollTrigger);
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#introduction--section",
-        start: "top bottom",
-        toggleActions: "play none none reverse",
+        trigger: "#hero--section",
+        start: "top top",
+        end: "bottom top-=1000",
+        scrub: true,
+        pin: true,
+        markers: true,
       },
+    });
+
+    tl.to(".hero--section__heading, .hero--section__text", {
+      opacity: 0,
+    });
+
+    tl.to(groupRef.current.rotation, {
+      z: -0.3,
+    });
+
+    tl.to(groupRef.current.position, {
+      x: viewport.width * 0.2,
+      y: -0.5,
+    });
+
+    tl.to(groupRef.current.position, {
+      x: viewport.width * 0.6,
+      y: -1,
+    });
+
+    tl.to(groupRef.current.position, {
+      x: viewport.width * 1,
+      y: -1.5,
+    });
+
+    tl.to(groupRef.current.position, {
+      x: viewport.width * 1.4,
+      y: -2,
     });
   });
 

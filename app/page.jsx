@@ -1,22 +1,23 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const Hero = dynamic(() => import("@/sections/Hero"), { ssr: false });
-import KoiFish from "@/components/KoiFish";
+import Hero from "@/sections/Hero";
 
 const Home = () => {
   return (
     <>
-      <div className="absolute top-0 left-0 w-svw h-svh pointer-events-none">
-        <KoiFish />
-      </div>
-      <section id="hero--section" className="w-svw h-svh overflow-hidden">
+      <section
+        id="hero--section"
+        className="w-svw h-svh overflow-x-hidden relative"
+      >
         <Hero />
       </section>
       <section
         id="introduction--section"
-        className="w-svw h-svh overflow-hidden z-10"
+        className="w-svw h-svh overflow-x-hidden bg-[#182529]"
+      ></section>
+      <section
+        id="contact--section"
+        className="w-svw h-svh overflow-x-hidden bg-[#182529]"
       ></section>
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useAnimations, useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 
 const KoiFishModel = ({ scale, ...props }) => {
@@ -11,9 +12,14 @@ const KoiFishModel = ({ scale, ...props }) => {
   useEffect(() => {
     if (actions && actions["MorphBake"]) {
       actions["MorphBake"].play();
-      actions["MorphBake"].timeScale = 2;
     }
   }, [actions]);
+
+  useFrame(() => {
+    if (actions && actions["MorphBake"]) {
+      actions["MorphBake"].timeScale = 4;
+    }
+  });
 
   return (
     <group ref={group} {...props} dispose={null}>

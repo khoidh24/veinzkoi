@@ -1,5 +1,6 @@
 "use client";
 
+import KoiFish from "@/components/KoiFish";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollSmoother, ScrollTrigger } from "gsap/all";
@@ -17,23 +18,6 @@ const RootLayoutTemplate = ({ children }) => {
       normalizeScroll: true,
       ignoreMobileResize: true,
     });
-
-    smoother.effects(".plant--img", {
-      speed: 0.6,
-    });
-
-    gsap.from(".menu--button", {
-      y: 200,
-      delay: 2,
-      duration: 1,
-      ease: "power2.out",
-    });
-    gsap.from(".container--res", {
-      opacity: 0,
-      duration: 1,
-      delay: 1.5,
-      ease: "power2.out",
-    });
   });
 
   useEffect(() => {
@@ -49,21 +33,40 @@ const RootLayoutTemplate = ({ children }) => {
       }
     };
 
+    const handleTouchMove = (e) => {
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+    };
+
     document.addEventListener("contextmenu", handleContextMenu);
     document.addEventListener("touchstart", handleTouchStart);
+
+    document.addEventListener("touchmove", handleTouchMove, {
+      passive: false,
+    });
 
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu);
       document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
   return (
-    <div id="smooth-wrapper">
-      <div id="smooth-content" className="relative mx-auto !overflow-x-hidden">
-        {children}
+    <>
+      <div
+        id="koi-fish"
+        className="fixed top-0 left-0 w-svw h-svh pointer-events-none z-10"
+      >
+        <KoiFish />
       </div>
-    </div>
+      <div id="smooth-wrapper">
+        <div id="smooth-content" className="relative mx-auto !overflow-hidden">
+          {children}
+        </div>
+      </div>
+    </>
   );
 };
 

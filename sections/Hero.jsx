@@ -1,8 +1,6 @@
 "use client";
 
 import { AuroraText } from "@/components/AuroraText";
-import KoiFish from "@/components/KoiFish";
-import React from "react";
 
 const Hero = () => {
   return (
@@ -15,16 +13,17 @@ const Hero = () => {
       >
         <source src="/bg.mp4" type="video/mp4" />
       </video>
+      <div className="absolute bottom-0 left-0 w-svw h-14 content-none z-[-1] bg-gradient-to-t from-[#182529] to-transparent"></div>
       <div className="container px-4 xl:px-0 mx-auto w-svw h-svh">
         <div className="flex justify-between items-center xl:items-start h-svh py-12 flex-col text-white">
-          <AuroraText className="text-7xl xl:text-9xl font-bold uppercase">
+          <AuroraText className="text-7xl sm:text-9xl xl:text-[14rem] font-bold uppercase leading-[1.2em] hero--section__heading">
             Veinzkoi
           </AuroraText>
-          <div className="font-bold text-center xl:text-left">
-            <p className="text-xl xl:text-4xl mb-2 uppercase">
+          <div className="font-bold text-center xl:text-left hero--section__text">
+            <p className="text-xl xl:text-5xl mb-2 uppercase">
               Where art and magic meet
             </p>
-            <div className="text-sm xl:text-base font-normal">
+            <div className="text-sm xl:text-lg font-normal">
               <p>An interface is not just something to look at</p>
               <p>but an experience to feel.</p>
             </div>
