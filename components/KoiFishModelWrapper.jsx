@@ -30,8 +30,7 @@ const KoiFishModelWrapper = () => {
           scrollTrigger: {
             trigger: "#hero--section",
             start: "top top",
-            end: isMobile ? "bottom top-=1000" : "bottom top-=2000",
-
+            end: isMobile ? "bottom top-=1000" : "bottom top-=2500",
             scrub: true,
             pin: true,
             // markers: true,
@@ -53,16 +52,24 @@ const KoiFishModelWrapper = () => {
           opacity: 0,
         });
 
-        heroTimeline.to(groupRef.current.rotation, {
-          z: -0.3,
-        });
+        heroTimeline.to(
+          groupRef.current.rotation,
+          {
+            z: -0.4,
+          },
+          0.5
+        );
 
-        heroTimeline.to(groupRef.current.position, {
-          x: viewport.width < 8 ? 4.4 : 13,
-          y: -2,
-          duration: 1,
-          ease: "power1.out",
-        });
+        heroTimeline.to(
+          groupRef.current.position,
+          {
+            x: viewport.width < 8 ? 4.4 : 13,
+            y: -2,
+            duration: 1,
+            ease: "power1.out",
+          },
+          0.5
+        );
 
         introductionTimeline.to(groupRef.current.rotation, {
           z: 0.3,

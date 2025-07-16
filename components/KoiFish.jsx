@@ -31,7 +31,26 @@ export default function KoiFish() {
         shadow-camera-far={50}
         color={"#87a6a6"}
       />
-
+      <spotLight
+        position={[0, -5, 5]}
+        angle={Math.PI / 4}
+        penumbra={0.3}
+        intensity={50}
+        color={"#87a6a6"}
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
+      <spotLight
+        position={[0, -5, -5]}
+        angle={Math.PI / 4}
+        penumbra={0.3}
+        intensity={50}
+        color={"#87a6a6"}
+        castShadow
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
       {/* <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} /> */}
       <Suspense fallback={null}>
         <KoiFishModelWrapper />
