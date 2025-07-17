@@ -25,7 +25,7 @@ const Introduction = () => {
     );
   });
   return (
-    <div className="container px-4 xl:px-0 py-8 mx-auto w-svw h-svh bg-background/30 backdrop-blur-sm z-20 relative">
+    <div className="container px-4 xl:px-0 py-8 mx-auto w-svw h-svh bg-background/30 xl:bg-transparent backdrop-blur-sm xl:backdrop-blur-none z-20 relative">
       <div className="text-[1.8rem] xl:text-6xl font-bold mb-3 xl:mb-8 opacity-0 introduction--section__heading">
         <h1>Experience is the easiest</h1>
         <h1>measure of maturity.</h1>

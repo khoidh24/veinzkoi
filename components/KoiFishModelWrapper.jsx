@@ -4,6 +4,7 @@ import KoiFishModel from "@/components/KoiFishModel";
 import { useGSAP } from "@gsap/react";
 import { useThree } from "@react-three/fiber";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useMemo, useRef } from "react";
 
 const KoiFishModelWrapper = () => {
@@ -16,6 +17,20 @@ const KoiFishModelWrapper = () => {
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
+    const koiFish = document.getElementById("koi-fish");
+
+    ScrollTrigger.create({
+      trigger: "#introduction--section",
+      start: "top top",
+      end: "bottom top+=500",
+      onEnter: () => {
+        koiFish.style.zIndex = "0";
+      },
+      onLeaveBack: () => {
+        koiFish.style.zIndex = "10";
+      },
+    });
+
     mm.add(
       {
         // mobile: width <= 768px
@@ -30,7 +45,7 @@ const KoiFishModelWrapper = () => {
           scrollTrigger: {
             trigger: "#hero--section",
             start: "top top",
-            end: isMobile ? "bottom top-=1000" : "bottom top-=2500",
+            end: isMobile ? "bottom top-=1000" : "bottom top-=2000",
             scrub: true,
             pin: true,
             // markers: true,
@@ -57,7 +72,7 @@ const KoiFishModelWrapper = () => {
           {
             z: -0.4,
           },
-          0.5
+          0.3
         );
 
         heroTimeline.to(
@@ -68,7 +83,7 @@ const KoiFishModelWrapper = () => {
             duration: 1,
             ease: "power1.out",
           },
-          0.5
+          0.3
         );
 
         introductionTimeline.to(groupRef.current.rotation, {
